@@ -1,0 +1,85 @@
+/* 
+FONT FAMILY
+
+h1 font-family: 'DM Serif Display', serif;
+h2 font-family: 'DM Serif Text', serif;
+The rest font-family: 'DM Sans', sans-serif; (400, 700)
+
+COLORS AS HEX
+
+Background Grey { color: #646464 }
+Lightest Grey { color: #c2c1c1 }
+Lighter Grey { color: #868686 }
+Darker Grey { color: #464646 }
+Dark Grey { color: #222222 }
+Pink { color: #ffaed4;}
+
+
+TEMP
+
+color: 
+
+var(--secondary-line-height);
+
+  */
+
+/* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FONTS & COLORS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+:root {
+    --background-grey-color: #646464;
+    --lighter-grey-color: #868686;
+    --lightest-grey-color: #c2c1c1;
+    --darker-grey-color: #464646;
+    --darkest-grey-color: #222;
+    --primary-pink-color: #ffaed4;
+
+    --primary-font-weight: 400;
+    --primary-line-height: 1;
+    --secondary-line-height: 0.5;
+
+    --h1-font-size: 22px;
+    --h2-font-size: 20px;
+    --h3-font-size: 16px;
+    --h4-font-size: 14px;
+    --p-font-size: 16px;
+
+    --headings-font-family: 'DM Serif Display', serif;
+    --copy-font-family: 'DM Sans', sans-serif;
+  }
+  
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--background-grey-color);
+    font-weight: var(--primary-font-weight);
+    color: var(--darkest-grey-color);
+    font-size: var(--p-font-size);
+    font-family: var(--copy-font-family);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--headings-font-family);
+    margin: 0;
+}
+
+header {
+    background-color: var(--primary-pink-color);
+    font-size: var(--h1-font-size);
+}
+
+.pokeList {
+    margin: 10px 0;
+    padding-left: 10px;
+    background-color: var(--lighter-grey-color);
+    max-width: fit-content;
+}
+
+.pokelist__height {
+    background-color: var(--primary-pink-color);
+}
