@@ -25,14 +25,23 @@ let pokemonList = [
     }
 ]
 
-//Formats the output
-let pokeName__open = "<p class='pokeList'>"
-let pokeName__close = "</p>"
-let pokeHeight__open = " <span class='pokelist__height'>Height: ";
-let pokeHeight__close = "</span>"
+//Formats the height output
+let height_o = " <span class='pokelist__height'>";
+let height_c = "</span>";
+//Defines and formats the copy for the big pokemon 
+let bigPokemon = " <b><span class='emoji'>&#9889;</span> Wow, that's big!</b> <span class='emoji'>&#9889;</span>";
 
-for (let i = 1; i < pokemonList.length; i++) {
-    document.write(pokeName__open + pokemonList[i].name + pokeHeight__open + pokemonList[i].height + pokeHeight__close + pokeName__close);
-    console.log(pokemonList[i].name);
+//Defines the loop conditions
+for (let i = 0; i < pokemonList.length; i++) {
+    //Defines the minimum height of the big Pokémon
+    if (pokemonList[i].height > 1.7) {
+        //Defines sentence to be displayed for big Pokémon
+        document.write("<p>" + pokemonList[i].name + height_o + "Height: " + pokemonList[i].height + height_c + bigPokemon + "</p>");
+        console.log("<p>" + pokemonList[i].name + height_o + "Height: " + pokemonList[i].height + height_c + bigPokemon + "</p>");
+    } else {
+        //Defines sentence to be displayed for NOT big Pokémon
+        document.write("<p>" + pokemonList[i].name + height_o + "Height: " + pokemonList[i].height + height_c + "</p>");
+        console.log("<p>" + pokemonList[i].name + height_o + "Height: " + pokemonList[i].height + height_c + "</p>");
+    }
 }
 
