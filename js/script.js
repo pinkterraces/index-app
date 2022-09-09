@@ -22,8 +22,7 @@ let pokemonList = [
         height: 1.8,
         types: ['Fighting', 'Rock', 'Steel', 'Fire', 'Ice'],
         abilities:['Clear-body', 'Ice-body']
-    }
-];
+    } ];
 
 //Formats bid pokemon text
 let bigPokemon = " <b><span class='emoji'>&#9889;</span> Wow, that's big!</b> <span class='emoji'>&#9889;</span>";
@@ -41,7 +40,6 @@ pokemonList.forEach(function(getPokemon) {
 function printObject(print) {
     console.log(pokemonList[print]);
 };
-
 Object.keys(pokemonList).forEach(printObject);
 
 
