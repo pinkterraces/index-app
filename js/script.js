@@ -43,7 +43,7 @@ let pokemonRepository = (function()  {
 
 let pokemon5 = {
     name: 'James',
-    height: 1.4,
+    height: 3,
     types: ['Rock', 'Steel', 'Fire', 'Bug', 'Ghost', 'Dragon'],
     abilities:['Oblivious', 'Dry-skin', 'Forewarn']
 };
@@ -58,7 +58,10 @@ console.log(pokemonRepository.add(pokemon5));
 let bigPokemon = " <b><span class='emoji'>&#9889;</span> Wow, that's big!</b> <span class='emoji'>&#9889;</span>";
 
 //Assesses height of Pokemon and writes results to document
-pokemonList.forEach(function(getPokemon) {
+
+let pokemonAttributes = pokemonRepository.getAll();
+
+pokemonAttributes.forEach(function(getPokemon) {
     if (getPokemon.height > 1.7) {
         document.write("<p>" + getPokemon.name + "<span class='pokelist__height'> Height: " + getPokemon.height + "</span>" + bigPokemon + "</p>");
     } else {
@@ -66,7 +69,7 @@ pokemonList.forEach(function(getPokemon) {
     };
 });
 
-//Prints Objects to console
+/*Prints Objects to console
 function printObject(print) {
     console.log(pokemonList[print]);
 };
