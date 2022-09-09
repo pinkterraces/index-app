@@ -71,33 +71,6 @@ pokemonAttributes.forEach(function(getPokemon) {
 
 /*Prints Objects to console
 function printObject(print) {
-    console.log(pokemonList[print]);
+    console.log(pokemonAttributes[print]);
 };
-Object.keys(pokemonList).forEach(printObject);
-
-
-
-
-/*OLD for LOOP CODE - REPLACED WITH forEach
-
-//Defines and formats the copy for the big pokemon 
-let bigPokemon = " <b><span class='emoji'>&#9889;</span> Wow, that's big!</b> <span class='emoji'>&#9889;</span>";
-
-//Defines the loop conditions
-for (let i = 0; i < pokemonList.length; i++) {
-    //Defines the minimum height of the big Pokémon
-    if (pokemonList[i].height > 1.7) {
-        //Defines sentence to be displayed for big Pokémon
-        document.write("<p>" + pokemonList[i].name + "<span class='pokelist__height'> Height: " + pokemonList[i].height + "</span>" + bigPokemon + "</p>");
-    } else {
-        //Defines sentence to be displayed for NOT big Pokémon
-        document.write("<p>" + pokemonList[i].name + "<span class='pokelist__height'> Height: " + pokemonList[i].height + "</span>" + "</p>");
-    }
-};*/
-
-/*
-Object.keys(pokemonList).forEach(function (printPokemon) {
-    console.log(pokemonList[printPokemon]);
-});*/
-
-
+Object.keys(pokemonAttributes).forEach(printObject);
