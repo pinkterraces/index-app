@@ -27,7 +27,11 @@ let pokemonRepository = (function()  {
         } ];
 
         function add(pokemonItem) {
-            pokemonList.push(pokemonItem);
+            if (typeof pokemonItem === typeof {}) {
+                pokemonList.push(pokemonItem);
+            } else {
+                console.log("Only objects can be added to the Pokemon Repository")
+            }
         }
 
         function getAll() {
@@ -73,4 +77,4 @@ pokemonAttributes.forEach(function(getPokemon) {
 function printObject(print) {
     console.log(pokemonAttributes[print]);
 };
-Object.keys(pokemonAttributes).forEach(printObject);
+Object.keys(pokemonAttributes).forEach(printObject); */
