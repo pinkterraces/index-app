@@ -1,25 +1,25 @@
 let pokemonRepository = (function()  {
 
     let pokemonList = [
-        pokemon1 = {
+        {
             name: 'Raichu',
             height: 0.8,
             types: ['Ground', 'Flying', 'Steel', 'Electric'],
             abilities: ['Static', 'Lightningrod']
         },
-        pokemon2 = {
+        {
             name: 'Krookodile',
             height: 1.5,
             types: ['Water', 'Grass', 'Ice', 'Fighting', 'Bug', 'Fairy'],
             abilities: ['Intimidate', 'Anger-point', 'Moxie']
         },
-        pokemon3 = {
+        {
             name: 'Jynx',
             height: 1.4,
             types: ['Rock', 'Steel', 'Fire', 'Bug', 'Ghost', 'Dragon'],
             abilities:['Oblivious', 'Dry-skin', 'Forewarn']
         },
-        pokemon4 = {
+        {
             name: 'Regice',
             height: 1.8,
             types: ['Fighting', 'Rock', 'Steel', 'Fire', 'Ice'],
@@ -27,7 +27,7 @@ let pokemonRepository = (function()  {
         } ];
 
         function add(pokemonItem) {
-            if (typeof pokemonItem === typeof {}) {
+            if (typeof pokemonItem === "object" && "name") {
                 pokemonList.push(pokemonItem);
             } else {
                 console.log("Only objects can be added to the Pokemon Repository")
@@ -52,10 +52,19 @@ let pokemon5 = {
     abilities:['Oblivious', 'Dry-skin', 'Forewarn']
 };
 
+let pokemon6 = {
+    name: 'Maria',
+    height: 1,
+    types: ['Rock', 'Steel', 'Fire', 'Bug', 'Ghost', 'Dragon'],
+    abilities:['Oblivious', 'Dry-skin', 'Forewarn']
+};
+
+//Adds Pokemon
+pokemonRepository.add(pokemon5);
+pokemonRepository.add(pokemon6);
+
 //Calls Pokemon array
 console.log(pokemonRepository.getAll());
-//Adds Pokemon
-console.log(pokemonRepository.add(pokemon5));
 
 
 //Formats bid pokemon text
