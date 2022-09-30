@@ -59,9 +59,17 @@ let pokemon6 = {
     abilities:['Oblivious', 'Dry-skin', 'Forewarn']
 };
 
+let pokemon7 = {
+    name: 'Malcolm',
+    height: 1,
+    types: ['Rock', 'Steel', 'Fire', 'Bug', 'Ghost', 'Dragon'],
+    abilities:['Oblivious', 'Dry-skin', 'Forewarn']
+};
+
 //Adds Pokemon
 pokemonRepository.add(pokemon5);
 pokemonRepository.add(pokemon6);
+pokemonRepository.add(pokemon7);
 
 //Calls Pokemon array
 console.log(pokemonRepository.getAll());
@@ -73,6 +81,19 @@ let bigPokemon = " <b><span class='emoji'>&#9889;</span> Wow, that's big!</b> <s
 //Assesses height of Pokemon and writes results to document
 
 let pokemonAttributes = pokemonRepository.getAll();
+
+
+pokemonAttributes.forEach(function(namePrint) {
+    let pokemonListDisplay = document.querySelector(".pokemon-list");
+    let listItem = document.createElement("li");
+    let button = document.createElement("button")
+    button.innerText = namePrint.name;
+    button.classList.add("pokemon-list__button");
+    listItem.appendChild(button);
+    pokemonListDisplay.appendChild(listItem);
+});
+
+/* Old forEachLoop
 
 pokemonAttributes.forEach(function(getPokemon) {
     if (getPokemon.height > 1.7) {
