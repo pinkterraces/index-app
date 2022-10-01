@@ -38,9 +38,20 @@ let pokemonRepository = (function()  {
             return pokemonList;
         }
 
+        function addListItem(pokemon) {
+            let pokemonListDisplay = document.querySelector(".pokemon-list");
+            let listItem = document.createElement("li");
+            let button = document.createElement("button")
+            button.innerText = pokemon.name;
+            button.classList.add("pokemon-list__button");
+            listItem.appendChild(button);
+            pokemonListDisplay.appendChild(listItem);
+        }
+
         return {
             add: add,
-            getAll: getAll            
+            getAll: getAll,
+            addListItem: addListItem
         };
 
 })();
@@ -79,18 +90,8 @@ console.log(pokemonRepository.getAll());
 let bigPokemon = " <b><span class='emoji'>&#9889;</span> Wow, that's big!</b> <span class='emoji'>&#9889;</span>";
 
 //Assesses height of Pokemon and writes results to document
-
-let pokemonAttributes = pokemonRepository.getAll();
-
-
-pokemonAttributes.forEach(function(namePrint) {
-    let pokemonListDisplay = document.querySelector(".pokemon-list");
-    let listItem = document.createElement("li");
-    let button = document.createElement("button")
-    button.innerText = namePrint.name;
-    button.classList.add("pokemon-list__button");
-    listItem.appendChild(button);
-    pokemonListDisplay.appendChild(listItem);
+pokemonRepository.getAll().forEach(function(pokemon) {
+    pokemonRepository.addListItem(pokemon);
 });
 
 /* Old forEachLoop
