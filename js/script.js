@@ -43,9 +43,16 @@ let pokemonRepository = (function()  {
             let listItem = document.createElement("li");
             let button = document.createElement("button")
             button.innerText = pokemon.name;
+
+            button.addEventListener("click", showDetails);
+
             button.classList.add("pokemon-list__button");
             listItem.appendChild(button);
             pokemonListDisplay.appendChild(listItem);
+        }
+
+        function showDetails(pokemon) {
+            console.log(pokemon);
         }
 
         return {
@@ -77,10 +84,18 @@ let pokemon7 = {
     abilities:['Oblivious', 'Dry-skin', 'Forewarn']
 };
 
+let pokemon8 = {
+    name: 'Nick',
+    height: 1,
+    types: ['Rock', 'Steel', 'Fire', 'Bug', 'Ghost', 'Dragon'],
+    abilities:['Oblivious', 'Dry-skin', 'Forewarn']
+};
+
 //Adds Pokemon
 pokemonRepository.add(pokemon5);
 pokemonRepository.add(pokemon6);
 pokemonRepository.add(pokemon7);
+pokemonRepository.add(pokemon8);
 
 //Calls Pokemon array
 console.log(pokemonRepository.getAll());
