@@ -15,12 +15,6 @@ Dark Grey { color: #222222 }
 Pink { color: #ffaed4;}
 
 
-TEMP
-
-color: 
-
-var(--secondary-line-height);
-
   */
 
 /* <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< FONTS & COLORS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
@@ -108,7 +102,6 @@ button, input[type="submit"], input[type="reset"] {
     min-width: 100px;
     border: 0px solid #c2c1c1;
     border-bottom: 4px solid var(--secondary-pink-color);
-   
 }
 
 .pokemon-list__button:hover {

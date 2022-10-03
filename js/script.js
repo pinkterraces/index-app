@@ -37,6 +37,7 @@ let pokemonRepository = (function()  {
             return pokemonList;
         };
 
+        //Adds one button per pokemon and event handler per button
         function addListItem(pokemon) {
             let pokemonListDisplay = document.querySelector(".pokemon-list");
             let listItem = document.createElement("li");
@@ -64,8 +65,6 @@ let pokemonRepository = (function()  {
 
 })();
 
-
-
 //New Pokemon Data
 let pokemon5 = {
     name: 'James',
@@ -81,32 +80,17 @@ let pokemon6 = {
     abilities:['Oblivious', 'Dry-skin', 'Forewarn']
 };
 
-
-
 //Adds New Pokemon Data
 pokemonRepository.add(pokemon5);
 pokemonRepository.add(pokemon6);
 
-
-//Calls Pokemon array
-console.log(pokemonRepository.getAll());
-
+//Calls Pokemon array - info only
+//console.log(pokemonRepository.getAll());
 
 //Formats big pokemon text
 let bigPokemon = " <b><span class='emoji'>&#9889;</span> Wow, that's big!</b> <span class='emoji'>&#9889;</span>";
-
 
 //Assesses height of Pokemon and writes results to document
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
 });
-
-
-
-
-
-/*Prints Objects to console
-function printObject(print) {
-    console.log(pokemonAttributes[print]);
-};
-Object.keys(pokemonAttributes).forEach(printObject); */
