@@ -1,5 +1,4 @@
 let pokemonRepository = (function()  {
-
     let pokemonList = [
         {
             name: 'Raichu',
@@ -32,37 +31,42 @@ let pokemonRepository = (function()  {
             } else {
                 console.log("Only objects can be added to the Pokemon Repository")
             }
-        }
+        };
 
         function getAll() {
             return pokemonList;
-        }
+        };
 
         function addListItem(pokemon) {
             let pokemonListDisplay = document.querySelector(".pokemon-list");
             let listItem = document.createElement("li");
             let button = document.createElement("button")
             button.innerText = pokemon.name;
-
-            button.addEventListener("click", showDetails);
-
             button.classList.add("pokemon-list__button");
             listItem.appendChild(button);
             pokemonListDisplay.appendChild(listItem);
-        }
+
+            button.addEventListener("click", showDetails);
+
+        };
 
         function showDetails(pokemon) {
-            console.log(pokemon);
-        }
+            let pokemonName = pokemon.name;
+            console.log(pokemonName);
+        };
 
         return {
             add: add,
             getAll: getAll,
-            addListItem: addListItem
-        };
+            addListItem: addListItem,
+            showDetails: showDetails
+        };      
 
 })();
 
+
+
+//New Pokemon Data
 let pokemon5 = {
     name: 'James',
     height: 3,
@@ -77,47 +81,29 @@ let pokemon6 = {
     abilities:['Oblivious', 'Dry-skin', 'Forewarn']
 };
 
-let pokemon7 = {
-    name: 'Malcolm',
-    height: 1,
-    types: ['Rock', 'Steel', 'Fire', 'Bug', 'Ghost', 'Dragon'],
-    abilities:['Oblivious', 'Dry-skin', 'Forewarn']
-};
 
-let pokemon8 = {
-    name: 'Nick',
-    height: 1,
-    types: ['Rock', 'Steel', 'Fire', 'Bug', 'Ghost', 'Dragon'],
-    abilities:['Oblivious', 'Dry-skin', 'Forewarn']
-};
 
-//Adds Pokemon
+//Adds New Pokemon Data
 pokemonRepository.add(pokemon5);
 pokemonRepository.add(pokemon6);
-pokemonRepository.add(pokemon7);
-pokemonRepository.add(pokemon8);
+
 
 //Calls Pokemon array
 console.log(pokemonRepository.getAll());
 
 
-//Formats bid pokemon text
+//Formats big pokemon text
 let bigPokemon = " <b><span class='emoji'>&#9889;</span> Wow, that's big!</b> <span class='emoji'>&#9889;</span>";
+
 
 //Assesses height of Pokemon and writes results to document
 pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
 });
 
-/* Old forEachLoop
 
-pokemonAttributes.forEach(function(getPokemon) {
-    if (getPokemon.height > 1.7) {
-        document.write("<p>" + getPokemon.name + "<span class='pokelist__height'> Height: " + getPokemon.height + "</span>" + bigPokemon + "</p>");
-    } else {
-        document.write("<p>" + getPokemon.name + "<span class='pokelist__height'> Height: " + getPokemon.height + "</span></p>");
-    };
-});
+
+
 
 /*Prints Objects to console
 function printObject(print) {
