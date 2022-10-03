@@ -32,6 +32,7 @@ var(--secondary-line-height);
     --darker-grey-color: #464646;
     --darkest-grey-color: #222;
     --primary-pink-color: #ffaed4;
+    --secondary-pink-color: #fa96c5;
 
     --primary-font-weight: 400;
 
@@ -105,7 +106,18 @@ button, input[type="submit"], input[type="reset"] {
     padding: 5px;
     margin: 5px;
     min-width: 100px;
-    border: 2px solid #c2c1c1;
-    border-bottom: 4px solid #c2c1c1;
+    border: 0px solid #c2c1c1;
+    border-bottom: 4px solid var(--secondary-pink-color);
    
+}
+
+.pokemon-list__button:hover {
+    background-color: var(--lightest-grey-color);
+    border-bottom: 4px solid var(--lighter-grey-color);
+}
+
+.pokemon-list__button:active {
+    background-color: var(--lightest-grey-color);
+    border-top: 4px solid var(--lighter-grey-color);
+    border-bottom: 0px;
 }
