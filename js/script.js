@@ -52,16 +52,14 @@ let pokemonRepository = (function()  {
 
         };
 
-
         function showDetails(pokemon) {
-            console.log(pokemon);
+            console.log(pokemon.name);
         };
 
         return {
             add: add,
             getAll: getAll,
-            addListItem: addListItem,
-            showDetails: showDetails
+            addListItem: addListItem
         };      
 
 })();
