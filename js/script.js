@@ -46,13 +46,14 @@ let pokemonRepository = (function()  {
             listItem.appendChild(button);
             pokemonListDisplay.appendChild(listItem);
 
-            button.addEventListener("click", showDetails);
+            button.addEventListener("click", function(event) {
+                showDetails(pokemon);
+            });
 
         };
 
         function showDetails(pokemon) {
-            let pokemonName = pokemon.name;
-            console.log(pokemonName);
+            console.log(pokemon);
         };
 
         return {
