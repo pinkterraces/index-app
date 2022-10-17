@@ -20,32 +20,34 @@ let pokemonRepository = (function()  {
 
         //Adds one button per pokemon and event handler per button
         function addListItem(pokemon) {
-            let pokemonListDisplay = document.querySelector(".pokemon-list");
+            loadDetails(pokemon).then(function() {
+                let pokemonListDisplay = document.querySelector(".pokemon-list");
 
-            let listItem = document.createElement("li");
+                let listItem = document.createElement("li");
+                listItem.classList.add('list-item');
 
-            let pokemonCard = document.createElement('div');
-            pokemonCard.classList.add('pokemon-card');
+                let pokemonCard = document.createElement('div');
+                pokemonCard.classList.add('pokemon-card');
 
-            let pokemonImageFront = document.createElement('img');
-            pokemonImageFront.classList.add('pokemon-img');
-            pokemonImageFront.setAttribute('src', `${pokemon.imageUrlFront}`);
-            pokemonImageFront.setAttribute('width', '100');
-            pokemonImageFront.setAttribute('alt', 'Picture of front of the pokemon');
+                let pokemonImageFront = document.createElement('img');
+                pokemonImageFront.classList.add('pokemon-img');
+                pokemonImageFront.setAttribute('src', `${pokemon.imageUrlFront}`);
+                pokemonImageFront.setAttribute('width', '100');
+                pokemonImageFront.setAttribute('alt', 'Picture of front of the pokemon');
 
-            let button = document.createElement("button")
-            button.innerText = pokemon.name;
-            button.classList.add("pokemon-list__button");
+                let button = document.createElement("button")
+                button.innerText = pokemon.name;
+                button.classList.add("pokemon-list__button");
 
-            listItem.appendChild(pokemonCard);
-            pokemonCard.appendChild(pokemonImageFront);
-            pokemonCard.appendChild(button);
-            pokemonListDisplay.appendChild(listItem);
+                listItem.appendChild(pokemonCard);
+                pokemonCard.appendChild(pokemonImageFront);
+                pokemonCard.appendChild(button);
+                pokemonListDisplay.appendChild(listItem);
 
-            button.addEventListener("click", function(event) {
-                showDetails(pokemon);
-            });
-
+                button.addEventListener("click", function(event) {
+                    showDetails(pokemon);
+                });
+            });  
         };
         
         //Modal overlay to display pokemon details
