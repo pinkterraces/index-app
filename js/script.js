@@ -21,11 +21,25 @@ let pokemonRepository = (function()  {
         //Adds one button per pokemon and event handler per button
         function addListItem(pokemon) {
             let pokemonListDisplay = document.querySelector(".pokemon-list");
+
             let listItem = document.createElement("li");
+
+            let pokemonCard = document.createElement('div');
+            pokemonCard.classList.add('pokemon-card');
+
+            let pokemonImageFront = document.createElement('img');
+            pokemonImageFront.classList.add('pokemon-img');
+            pokemonImageFront.setAttribute('src', `${pokemon.imageUrlFront}`);
+            pokemonImageFront.setAttribute('width', '100');
+            pokemonImageFront.setAttribute('alt', 'Picture of front of the pokemon');
+
             let button = document.createElement("button")
             button.innerText = pokemon.name;
             button.classList.add("pokemon-list__button");
-            listItem.appendChild(button);
+
+            listItem.appendChild(pokemonCard);
+            pokemonCard.appendChild(pokemonImageFront);
+            pokemonCard.appendChild(button);
             pokemonListDisplay.appendChild(listItem);
 
             button.addEventListener("click", function(event) {
