@@ -59,6 +59,9 @@ let pokemonRepository = (function()  {
                 let modalWeight = document.createElement('p');
                 modalWeight.innerText = `Weight: ${pokemon.weight || '?'}`;
 
+                let modalImages = document.createElement('div');
+                modalImages.classList.add('modal-images');
+
                 let pokemonImageFront = document.createElement('img');
                 pokemonImageFront.classList.add('pokemon-img');
                 pokemonImageFront.setAttribute('src', `${pokemon.imageUrlFront}`);
@@ -73,10 +76,11 @@ let pokemonRepository = (function()  {
 
                 modal.appendChild(closeButton);
                 modal.appendChild(modalTitle);
+                modal.appendChild(modalImages);
+                modalImages.appendChild(pokemonImageFront);
+                modalImages.appendChild(pokemonImageBack);
                 modal.appendChild(modalHeight);
                 modal.appendChild(modalWeight);
-                modal.appendChild(pokemonImageFront);
-                modal.appendChild(pokemonImageBack);
                 modalContainer.append(modal);
 
                 modalContainer.classList.add('is-visible');

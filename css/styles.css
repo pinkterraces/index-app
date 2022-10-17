@@ -72,6 +72,7 @@ p {
 header {
     background-color: var(--primary-pink-color);
     font-size: var(--h1-font-size);
+    width: 100%;
 }
 
 .pokelist__height {
@@ -100,6 +101,7 @@ button, input[type="submit"], input[type="reset"] {
     padding: 5px;
     margin: 5px;
     min-width: 100px;
+    max-width: 100px;
     border: 0px solid #c2c1c1;
     border-bottom: 4px solid var(--secondary-pink-color);
 }
@@ -121,28 +123,9 @@ button, input[type="submit"], input[type="reset"] {
     grid-gap: 20px;
     padding: 15px;
     list-style: none;
+    text-align: center;
 }
 
-@media all and (max-width: 500px) {
-    .pokemon-list {
-        grid-template-columns: 3fr;
-    }   
-    .pokemon-list__button {
-        width: 100%;
-        margin: 0px;
-    }
-}
-
-@media all and (max-width: 800px) {
-    .pokemon-list {
-        grid-template-columns: repeat(4, 1fr);
-        text-align: center;
-    }   
-    .pokemon-list__button {
-        width: 25%;
-        margin: 0px;
-    }
-}
 /*MODAL*/
 
 #modal-container {
@@ -176,7 +159,6 @@ button, input[type="submit"], input[type="reset"] {
     box-sizing: border-box;
     background: #c2c1c1;
     padding: 15px;
-    width: 100%;
     max-width: 700px;
     text-align: left;
   }
@@ -190,21 +172,40 @@ button, input[type="submit"], input[type="reset"] {
     text-decoration: underline;
   }
 
+  .modal-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
   .pokemon-img {
     filter: grayscale(1);
   }
 
-  
-  
 
-  @media all and (max-width: 500px) {
+
+
+/* MEDIA QUERIES */
+@media all and (max-width: 600px) {
     .pokemon-list {
-        grid-template-columns: 1fr 1fr;
-}
-    .heading--h1-light {
-        font-size: 50px;
+        grid-template-columns: 1fr 1fr 1fr;
+        text-align: center;
+    }   
+    .pokemon-list__button {
+        width: 100%;
+        margin: 0px;
     }
+}
 
+@media all and (min-width: 601px) and (max-width: 800px) {
+    .pokemon-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        text-align: center;
+    }   
+    .pokemon-list__button {
+        width: 25%;
+        margin: 0px;
+    }
 }
 
 /*
