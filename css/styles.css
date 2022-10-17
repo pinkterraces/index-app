@@ -151,7 +151,6 @@ button, input[type="submit"], input[type="reset"] {
 .focus-pokemon {
     /*grid-column: 1 / span 2;*/
     /*grid-row: 1 / span 2;*/
-    
 }
 
 /*MODAL*/
@@ -241,7 +240,7 @@ button, input[type="submit"], input[type="reset"] {
     .pokemon-list {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         text-align: center;
-    }   
+    } 
 }
 
 /*
