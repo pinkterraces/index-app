@@ -44,6 +44,8 @@ let pokemonRepository = (function()  {
                 pokemonCard.appendChild(button);
                 pokemonListDisplay.appendChild(listItem);
 
+                document.querySelector('.pokemon-list :first-child').classList.add('focus-pokemon');
+
                 button.addEventListener("click", function(event) {
                     showDetails(pokemon);
                 });
@@ -123,9 +125,9 @@ let pokemonRepository = (function()  {
             }
         });
 
-        document.querySelector('.pokemon-list__button').addEventListener('click', () => {
-            showModal('Modal title', 'This is the modal content!');
-        });
+        //document.querySelector('.pokemon-list__button').addEventListener('click', () => {
+        //    showModal('Modal title', 'This is the modal content!');
+        //});
         //Modal overlay finshes here
 
         //Gets list of pokemon names from api

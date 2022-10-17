@@ -97,38 +97,45 @@ button, input[type="submit"], input[type="reset"] {
 }
 
 .pokemon-list__button {
-    background-color: #ffaed4;
+    background-color: var(--lighter-grey-color);
     padding: 5px;
     margin: 5px;
     min-width: 100px;
     max-width: 100px;
     border: 0px solid #c2c1c1;
-    border-bottom: 4px solid var(--secondary-pink-color);
+    border-bottom: 4px solid var(--darker-grey-color);
 }
 
 .pokemon-list__button:hover {
-    background-color: var(--lightest-grey-color);
-    border-bottom: 4px solid var(--lighter-grey-color);
+    background-color: var(--darker-grey-color);
+    border-bottom: 4px solid var(--darkest-grey-color);
 }
 
 .pokemon-list__button:active {
-    background-color: var(--lightest-grey-color);
-    border-top: 4px solid var(--lighter-grey-color);
+    background-color: var(--darker-grey-color);
+    border-top: 4px solid var(--darkest-grey-color);
     border-bottom: 0px;
 }
 
 .list-item {
-    display: flex;
+    display: grid;
     justify-content: space-around;
+    
+    
 }
 
 .pokemon-card {
     background-color: #c2c1c1;
     padding: 5px;
-    margin: 5px;
+    margin: 0px;
     min-width: 150px;
     max-width: 150px;
     border: 0px solid #c2c1c1;
+    /*border-bottom: 4px solid var(--secondary-pink-color);*/
+}
+
+.pokemon-card:first-child {
+   width: 100%;
     /*border-bottom: 4px solid var(--secondary-pink-color);*/
 }
 
@@ -136,9 +143,15 @@ button, input[type="submit"], input[type="reset"] {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
-    padding: 15px;
+    padding: 40px;
     list-style: none;
     text-align: center;
+}
+
+.focus-pokemon {
+    /*grid-column: 1 / span 2;*/
+    /*grid-row: 1 / span 2;*/
+    
 }
 
 /*MODAL*/
@@ -202,15 +215,19 @@ button, input[type="submit"], input[type="reset"] {
 
 
 /* MEDIA QUERIES */
-@media all and (max-width: 600px) {
+
+@media all and (max-width: 450px) {
+    .pokemon-list {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }   
+}
+
+@media all and (min-width: 401px) and (max-width: 600px) {
     .pokemon-list {
         grid-template-columns: 1fr 1fr;
         text-align: center;
-    }   
-    .pokemon-list__button {
-        width: 100%;
-        margin: 0px;
-    }
+    } 
 }
 
 @media all and (min-width: 601px) and (max-width: 800px) {
@@ -218,10 +235,6 @@ button, input[type="submit"], input[type="reset"] {
         grid-template-columns: 1fr 1fr 1fr;
         text-align: center;
     }   
-    .pokemon-list__button {
-        width: 25%;
-        margin: 0px;
-    }
 }
 
 @media all and (min-width: 801px) and (max-width: 1000px) {
@@ -229,10 +242,6 @@ button, input[type="submit"], input[type="reset"] {
         grid-template-columns: 1fr 1fr 1fr 1fr;
         text-align: center;
     }   
-    .pokemon-list__button {
-        width: 25%;
-        margin: 0px;
-    }
 }
 
 /*
