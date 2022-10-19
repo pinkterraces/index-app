@@ -30,7 +30,7 @@ let pokemonRepository = (function()  {
                 pokemonCard.classList.add('pokemon-card');
 
                 let pokemonImageFront = document.createElement('img');
-                pokemonImageFront.classList.add('pokemon-img');
+                pokemonImageFront.classList.add('pokemon-img-card');
                 pokemonImageFront.setAttribute('src', `${pokemon.imageUrlFront}`);
                 pokemonImageFront.setAttribute('width', '100');
                 pokemonImageFront.setAttribute('alt', 'Picture of front of the pokemon');
@@ -81,15 +81,15 @@ let pokemonRepository = (function()  {
                 modalImages.classList.add('modal-images');
 
                 let pokemonImageFront = document.createElement('img');
-                pokemonImageFront.classList.add('pokemon-img');
+                pokemonImageFront.classList.add('pokemon-img-modal');
                 pokemonImageFront.setAttribute('src', `${pokemon.imageUrlFront}`);
-                pokemonImageFront.setAttribute('width', '250');
+
                 pokemonImageFront.setAttribute('alt', 'Picture of front of the pokemon');
 
                 let pokemonImageBack = document.createElement('img');
-                pokemonImageBack.classList.add('pokemon-img');
+                pokemonImageBack.classList.add('pokemon-img-modal');
                 pokemonImageBack.setAttribute('src', `${pokemon.imageUrlBack}`);
-                pokemonImageBack.setAttribute('width', '250');
+                
                 pokemonImageBack.setAttribute('alt', 'Picture of back of the pokemon');
 
                 modal.appendChild(closeButton);
