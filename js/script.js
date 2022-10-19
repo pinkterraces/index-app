@@ -87,7 +87,7 @@ let pokemonRepository = (function()  {
                 pokemonImageFront.setAttribute('alt', 'Picture of front of the pokemon');
 
                 let pokemonImageBack = document.createElement('img');
-                pokemonImageBack.classList.add('pokemon-img-modal');
+                pokemonImageBack.classList.add('pokemon-img-modal', 'pokemon-img-modal-back');
                 pokemonImageBack.setAttribute('src', `${pokemon.imageUrlBack}`);
                 
                 pokemonImageBack.setAttribute('alt', 'Picture of back of the pokemon');
