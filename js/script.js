@@ -48,29 +48,33 @@ let pokemonRepository = (function()  {
 
                 /* document.querySelector('.pokemon-list :first-child').classList.add('focus-pokemon'); */
 
-                /*button.on('click', function(event) {
-                    showDetails(pokemon);
-                });*/
+                button.click(showDetails);
             });  
         };
         
         //Modal overlay to display pokemon details
+
+       // $('.modal-header').append(document.createTextNode(`${pokemon.name || '?'}`.capitalize()));
+
         function showDetails(pokemon) {
             loadDetails(pokemon).then(function() {
-                let modalContainer = document.querySelector('#modal-container');
 
-                modalContainer.innerHTML = "";
+                $('.modal-title').append('Pokemon Title');
+                $('.modal-body').append('Pokemon Body Image Front');
+                $('.modal-body').append('Pokemon Body Image Back');
+                $('.modal-body').append('Pokemon Body Height');
+                $('.modal-body').append('Pokemon Body Weight');
+                
+                let modal = $('<div></div>');
+                modal.addClass('modal');
 
-                let modal = document.createElement('div');
-                modal.classList.add('modal');
+                let closeButton = $('<button></button>');
+                closeButton.addClass('modal-close-button');
+                closeButton.append(document.createTextNode('Close'));
+                closeButton.on('click', hideModal);
 
-                let closeButton = document.createElement('button');
-                closeButton.classList.add('modal-close-button');
-                closeButton.innerText = 'Close';
-                closeButton.addEventListener('click', hideModal);
-
-                let modalTitle = document.createElement('h1');
-                modalTitle.classList.add('modal-title');
+                let modalTitle = $('<h1></h1>');
+                modalTitle.addClass('modal-title');
                 modalTitle.innerText = `${pokemon.name || '?'}`.capitalize();
 
                 let modalHeight = document.createElement('p');
