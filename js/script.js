@@ -21,32 +21,32 @@ let pokemonRepository = (function()  {
         //Adds one button per pokemon and event handler per button
         function addListItem(pokemon) {
             loadDetails(pokemon).then(function() {
-                let pokemonListDisplay = document.querySelector(".pokemon-list");
+                let pokemonListDisplay = $('#pokemon-list');
 
-                let listItem = document.createElement("li");
-                listItem.classList.add('list-item');
+                let listItem = $('<li></li>');
+                listItem.addClass('list-item group-list-item');
 
-                let pokemonCard = document.createElement('div');
-                pokemonCard.classList.add('pokemon-card');
+                let pokemonCard = $('<div></div>');
+                pokemonCard.addClass('pokemon-card');
 
-                let pokemonImageFront = document.createElement('img');
-                pokemonImageFront.classList.add('pokemon-img-card');
-                pokemonImageFront.setAttribute('src', `${pokemon.imageUrlFront}`);
-                pokemonImageFront.setAttribute('width', '100');
-                pokemonImageFront.setAttribute('alt', 'Picture of front of the pokemon');
+                let pokemonImageFront = $('<img>');
+                pokemonImageFront.addClass('pokemon-img-card');
+                pokemonImageFront.attr('src', `${pokemon.imageUrlFront}`);
+                pokemonImageFront.attr('width', '100');
+                pokemonImageFront.attr('alt', 'Picture of front of the pokemon');
 
-                let button = document.createElement("button")
-                button.innerText = pokemon.name;
-                button.classList.add("pokemon-list__button");
+                let button = $('<div></div>')
+                button.append(document.createTextNode(pokemon.name));
+                button.addClass('pokemon-list__button btn btn-primary');
 
-                listItem.appendChild(pokemonCard);
-                pokemonCard.appendChild(pokemonImageFront);
-                pokemonCard.appendChild(button);
-                pokemonListDisplay.appendChild(listItem);
+                listItem.append(pokemonCard);
+                pokemonCard.append(pokemonImageFront);
+                pokemonCard.append(button);
+                pokemonListDisplay.append(listItem);
 
-                document.querySelector('.pokemon-list :first-child').classList.add('focus-pokemon');
+                /* document.querySelector('.pokemon-list :first-child').classList.add('focus-pokemon'); */
 
-                button.addEventListener("click", function(event) {
+                button.on('click', function(event) {
                     showDetails(pokemon);
                 });
             });  
