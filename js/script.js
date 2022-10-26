@@ -35,9 +35,11 @@ let pokemonRepository = (function()  {
                 pokemonImageFront.attr('width', '100');
                 pokemonImageFront.attr('alt', 'Picture of front of the pokemon');
 
-                let button = $('<div></div>')
+                let button = $('<button></button>')
                 button.append(document.createTextNode(pokemon.name));
                 button.addClass('pokemon-list__button btn btn-primary');
+                button.attr('data-toggle', 'modal');
+                button.attr('data-target', '#pokemonModal');
 
                 listItem.append(pokemonCard);
                 pokemonCard.append(pokemonImageFront);
@@ -46,9 +48,9 @@ let pokemonRepository = (function()  {
 
                 /* document.querySelector('.pokemon-list :first-child').classList.add('focus-pokemon'); */
 
-                button.on('click', function(event) {
+                /*button.on('click', function(event) {
                     showDetails(pokemon);
-                });
+                });*/
             });  
         };
         
