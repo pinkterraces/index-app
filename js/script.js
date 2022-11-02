@@ -105,11 +105,11 @@ let pokemonRepository = (function()  {
                 console.log(pokemon);   
                 //modalContainer.innerHTML = "";
 
-                $('.modal-title').append(pokemon.name);
+                //$('.modal-title').append(pokemon.name);
 
-/*                 let modalTitle = document.getElementById('exampleModalLabel');
+                let modalTitle = document.getElementById('exampleModalLabel');
                 modalTitle.innerHTML = "";
-                modalTitle.innerText = `${pokemon.name || '?'}`.capitalize(); */
+                modalTitle.innerText = `${pokemon.name || '?'}`.capitalize();
                 
             //});
         } 
