@@ -103,14 +103,42 @@ let pokemonRepository = (function()  {
         function showDetails(pokemon) {
             //loadDetails(pokemon).then(function() {
                 console.log(pokemon);   
-                //modalContainer.innerHTML = "";
+                $( ".modal-title" ).empty();
+                $('.modal-title').append(pokemon.name);
 
-                //$('.modal-title').append(pokemon.name);
+                $( ".modal-body" ).empty();
 
-                let modalTitle = document.getElementById('exampleModalLabel');
-                modalTitle.innerHTML = "";
-                modalTitle.innerText = `${pokemon.name || '?'}`.capitalize();
+                let modalImages = $('<div></div>');
+                modalImages.addClass('modal-images');
+
+                let pokemonImageFront = $('<img>');
+                pokemonImageFront.addClass('pokemon-img-card');
+                pokemonImageFront.attr('src', `${pokemon.imageUrlFront}`);
+                pokemonImageFront.attr('width', '100');
+                pokemonImageFront.attr('alt', 'Picture of front of the pokemon');
+
+                let pokemonImageBack= $('<img>');
+                pokemonImageBack.addClass('pokemon-img-card');
+                pokemonImageBack.attr('src', `${pokemon.imageUrlBack}`);
+                pokemonImageBack.attr('width', '100');
+                pokemonImageBack.attr('alt', 'Picture of front of the pokemon');
+
+                let modalProperties = $('<ul></ul>')
+                modalProperties.addClass('modal-properties');
+                let modalHeight = $('<li></li>');
+                modalHeight.text("Height: " + pokemon.height);
+                let modalWeight = $('<li></li>');
+                modalWeight.text("Weight: " + pokemon.weight);
                 
+                $('.modal-body').append(modalProperties);
+                $(modalProperties).append(modalHeight);
+                $(modalProperties).append(modalWeight);
+                $('.modal-body').append(modalImages)
+                $(modalImages).append(pokemonImageFront);
+                $(modalImages).append(pokemonImageBack);
+                /* let modalTitle = document.getElementById('exampleModalLabel');
+                modalTitle.innerHTML = "";
+                modalTitle.innerText = `${pokemon.name || '?'}`.capitalize(); */
             //});
         } 
 
