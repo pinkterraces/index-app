@@ -2,7 +2,7 @@ let pokemonRepository = (function () {
   let pokemonList = [];
 
   //Pokemon api
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=25';
 
   //Gets list of pokemon names from api
   function loadList() {
@@ -14,6 +14,7 @@ let pokemonRepository = (function () {
           name: item.name.capitalize(),
           detailsUrl: item.url
         };
+        //console.log(pokemon);
         add(pokemon);
       });
     }).catch(function (e) {
@@ -25,6 +26,7 @@ let pokemonRepository = (function () {
   function add(pokemonItem) {
     if (typeof pokemonItem === 'object' && 'name') {
       pokemonList.push(pokemonItem);
+      //console.log(pokemonItem);
     } else {
       console.log('Only objects can be added to the Pokemon Repository')
     }
@@ -37,6 +39,7 @@ let pokemonRepository = (function () {
 
   //Adds one button per pokemon and event handler per button
   function addListItem(pokemon) {
+    console.log(pokemon);
     loadDetails(pokemon).then(function () {
       let pokemonListDisplay = document.querySelector('.pokemon-list');
 
@@ -162,7 +165,8 @@ let pokemonRepository = (function () {
     getAll: getAll,
     addListItem: addListItem,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    apiUrl: apiUrl
   };
 
 })();
@@ -223,4 +227,19 @@ searchInput.addEventListener('input', (event) => { //listens for this type of ev
     pokemonRepository.addListItem(pokemon);
   });
 })
-//console.log(searchInput);
+//console.log(pokemonRepository.apiUrl);
+
+//Show More
+
+let button = document.querySelector('.show-more');
+button.innerText = 'Show More';
+button.classList.add('pokemon-list__button');
+      
+button.addEventListener('click', function () {
+  //console.log(newApiUrl);
+  pokemonRepository.loadList().then(function () {
+    pokemonRepository.getAll().forEach(function (pokemon) {
+      pokemonRepository.addListItem(pokemon);
+    });
+  });
+});
