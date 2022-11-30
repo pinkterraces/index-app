@@ -5,7 +5,7 @@
         <meta charset="utf-8">
         <link rel="shortcut icon" href="#">
         <link rel="stylesheet" type="text/css" href="dist/css/normalize-min.css">
-        <link rel="stylesheet" href="dist/css/styles-min.css">
+        <link rel="stylesheet" href="src/css/styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display&family=DM+Serif+Text&display=swap" rel="stylesheet">
@@ -14,12 +14,15 @@
     <body>
         <header>
             <h1>Pokédex</h1>
+
+            <input type="search" placeholder="Search Pokemon" id="search-pokemon"/>
+
         </header>
         <!-- Pokemon are listed in this UL -->
         <ul class="pokemon-list"></ul>
         <div id="modal-container"></div>
-        <script src="dist/js/polyfill.min.js"></script>
-        <script src="dist/js/fetch.umd.js"></script>
-        <script src="dist/js/script-min.js"></script>
+        <script src="src/js/polyfill.min.js"></script>
+        <script src="src/js/fetch.umd.js"></script>
+        <script src="src/js/script.js"></script>
     </body>
 </html>

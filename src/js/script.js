@@ -174,6 +174,12 @@ pokemonRepository.loadList().then(function () {
   });
 });
 
+  //function search(){
+    //let allNames = document.querySelectorAll('.pokemon-list__button'); 
+    //console.log(allNames);
+  //}
+
+
 //Capitalises names of Pokemon
 Object.defineProperty(String.prototype, 'capitalize', {
   value: function () {
@@ -181,3 +187,40 @@ Object.defineProperty(String.prototype, 'capitalize', {
   },
   enumerable: false
 });
+
+//Search
+
+
+const searchInput = document.querySelector('#search-pokemon')
+
+searchInput.addEventListener('input', (event) => { //listens for this type of event then executes the funtions
+  //console.log(event.target.value); 
+  const value = event.target.value; //.target.value = syntax for taking value of a given input
+
+  if (!value) {
+    let pokemonListDisplay = document.querySelector('.pokemon-list');
+    pokemonListDisplay.innerHTML = '';
+    pokemonRepository.loadList().then(function () {
+    pokemonRepository.getAll().forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+      });
+    });
+    return;
+  }
+  console.log("do i get here");
+  function checkPokemonName(pokemon) {
+    //console.log(pokemon);
+    if (pokemon.name.toLowerCase().includes(value.toLowerCase())) {
+        return pokemon }
+  }
+  //console.log(pokemonRepository.getAll().filter(checkPokemonName));
+  let result = pokemonRepository.getAll().filter(checkPokemonName);
+  //console.log(result[0].name);
+  
+  let pokemonListDisplay = document.querySelector('.pokemon-list');
+  pokemonListDisplay.innerHTML = '';
+  result.forEach(function (pokemon) {
+    pokemonRepository.addListItem(pokemon);
+  });
+})
+//console.log(searchInput);
