@@ -1,53 +1,33 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
 
-  //Pokemon api
-  //let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=25&offset=25';
-  
-  let offsetValue = -25;
+  //Access to the Pokemon api - offsetValue and limitValue should be equal
+  let offsetValue = -25; //Initial offsetValue - increases by limitValue on click (Show More)
+  let limitValue = 25; //Defines number of cards loaded on initial load and on click
+
   function apiUrl() {
-    let urlPartOne = 'https://pokeapi.co/api/v2/pokemon/?limit=25&offset=';
-    offsetValue = Number(offsetValue) + 25;
-    let finalUrl = urlPartOne + offsetValue;
+    let urlBase = 'https://pokeapi.co/api/v2/pokemon/?';
+    offsetValue = offsetValue + limitValue;
+    let finalUrl = urlBase + 'limit=' + limitValue + '&offset=' + offsetValue;
     console.log('apiURL finalUrl: ', finalUrl);
     return finalUrl
   }
-
-//  let pokemonListLatest = [];
-
+  //Alternative to getAll - Gets only newly added pokemon from pokemonList
   function getLatest(){
-    console.log('pl: ', pokemonList);
-    console.log(offsetValue);
-    let pokemonListLatest =  pokemonList.slice(offsetValue - 25);
-    console.log('xx', pokemonList.length - Number(offsetValue));
+    let pokemonListLatest =  pokemonList.slice(pokemonList.length - Number(limitValue));
+    //console.log('pokemonListLatest: ', offsetValue - limitValue - offsetValue);
     return pokemonListLatest;
   }
-
-  //console.log('get latest: ' + getLatest());
-
-
   //Show More
   let button = document.querySelector('.show-more');
   button.innerText = 'Show More';
   button.classList.add('pokemon-list__button');
-
   button.addEventListener('click', function () {
-    //console.log(newApiUrl);
-    //apiUrl();
     loadList().then(function () {
       getLatest().forEach(function (pokemon) {
-        addListItem(pokemon);
+        addCard(pokemon);
       });
     });
-  });
-
-  //Counter TEMP
-  let counter = document.querySelector('.counter');
-  counter.innerText = 'Counter';
-  counter.classList.add('pokemon-list__button');
-
-  counter.addEventListener('click', function () {
-    apiUrl();
   });
 
   //Gets list of pokemon names from api
@@ -80,12 +60,12 @@ let pokemonRepository = (function () {
 
   //Returns all pokemon in pokemonList
   function getAll() {
-    console.log(pokemonList);
+    //console.log(pokemonList);
     return pokemonList;
   }
 
-  //Adds one button per pokemon and event handler per button
-  function addListItem(pokemon) {
+  //Adds one card with button per pokemon in pokemonList and reders to DOM
+  function addCard(pokemon) {
     console.log(pokemon);
     loadDetails(pokemon).then(function () {
       let pokemonListDisplay = document.querySelector('.pokemon-list');
@@ -210,7 +190,7 @@ let pokemonRepository = (function () {
   return {
     add: add,
     getAll: getAll,
-    addListItem: addListItem,
+    addCard: addCard,
     loadList: loadList,
     loadDetails: loadDetails,
     //apiUrl: apiUrl
@@ -221,14 +201,9 @@ let pokemonRepository = (function () {
 //Triggers and creates initial pokemon list and buttons
 pokemonRepository.loadList().then(function () {
   pokemonRepository.getAll().forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
+    pokemonRepository.addCard(pokemon);
   });
 });
-
-//function search(){
-//let allNames = document.querySelectorAll('.pokemon-list__button'); 
-//console.log(allNames);
-//}
 
 //Capitalises names of Pokemon
 Object.defineProperty(String.prototype, 'capitalize', {
@@ -239,8 +214,6 @@ Object.defineProperty(String.prototype, 'capitalize', {
 });
 
 //Search
-
-
 const searchInput = document.querySelector('#search-pokemon')
 
 searchInput.addEventListener('input', (event) => { //listens for this type of event then executes the funtions
@@ -252,7 +225,7 @@ searchInput.addEventListener('input', (event) => { //listens for this type of ev
     pokemonListDisplay.innerHTML = '';
     pokemonRepository.loadList().then(function () {
       pokemonRepository.getAll().forEach(function (pokemon) {
-        pokemonRepository.addListItem(pokemon);
+        pokemonRepository.addCard(pokemon);
       });
     });
     return;
@@ -270,6 +243,6 @@ searchInput.addEventListener('input', (event) => { //listens for this type of ev
   let pokemonListDisplay = document.querySelector('.pokemon-list');
   pokemonListDisplay.innerHTML = '';
   result.forEach(function (pokemon) {
-    pokemonRepository.addListItem(pokemon);
+    pokemonRepository.addCard(pokemon);
   });
 })
