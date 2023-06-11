@@ -2,7 +2,7 @@
 
 ## Summary
 
-This is an app that fetches data from the Pokemon API and displays that data on a website. Additional information that also comes frm the API is available on a modal.
+This is a small web application build with HTML, CSS, and vanilla JavaScript that loads data from an external API and enables the viewing of data points in detail. 
 
 ### Tech
 
