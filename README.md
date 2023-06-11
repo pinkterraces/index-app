@@ -2,9 +2,7 @@
 
 ## Summary
 
-This is an app that fetches data from the Pokeapi and displays that data on a website. Additional information that also comes frm the API is available on a modal.
-
-The design has been kept purposly minimal and greyscale so to focus on the functionality of the app.
+This is an app that fetches data from the Pokemon API and displays that data on a website. Additional information that also comes frm the API is available on a modal.
 
 ### Tech
 
@@ -20,4 +18,4 @@ The design has been kept purposly minimal and greyscale so to focus on the funct
 
 ### Dependencies
 
-- Open API: https://pokeapi.co/
+- Open Pokemon API: https://pokeapi.co/
