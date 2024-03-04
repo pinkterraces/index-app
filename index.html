@@ -4,7 +4,7 @@
         <title>Simple JS App</title>
         <meta charset="utf-8">
         <link rel="shortcut icon" href="#">
-        <link rel="stylesheet" type="text/css" href="dist/css/normalize-min.css">
+        <link rel="stylesheet" type="text/css" href="src/css/normalize.css">
         <link rel="stylesheet" href="src/css/styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,16 +15,20 @@
         <header>
             <h1>Pokédex</h1>
 
-            <input type="search" placeholder="Search Pokemon" id="search-pokemon"/>
+            <input type="search" id="search-pokemon" results="5" tabindex="1" spellcheck="true" placeholder="Search" />
 
         </header>
         <!-- Pokemon are listed in this UL -->
-        <ul class="pokemon-list"></ul>
+        <section id="pokemon-list--section">
+            <ul class="pokemon-list"></ul>
+            <div id="modal-container"></div>
+        </section>
 
-        <button class="show-more pokemon-list__button">dd</button>
-        <button class="counter pokemon-list__button">dd</button>
-
-        <div id="modal-container"></div>
+        <div id="show-more--section">
+            <button class="show-more pokemon-list__button"></button>
+        </div>
+            
+        
         
         <script src="src/js/polyfill.min.js"></script>
         <script src="src/js/fetch.umd.js"></script>
